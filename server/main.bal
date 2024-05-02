@@ -1,6 +1,5 @@
 import ballerina/http;
 import ballerina/websocket;
-
 type Country record {
     string name;
     int id;
