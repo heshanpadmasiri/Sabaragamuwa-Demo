@@ -23,7 +23,7 @@ type Player record {|
 // Player information service
 service / on new http:Listener(8080) {
     final http:Client playerInfoClient = checkpanic new ("http://localhost:9090");
-    final http:Client storageService = checkpanic new ("http://localhost:9000");
+    final http:Client storageService = checkpanic new ("http://localhost:9000/storage");
 
     isolated resource function get player(int playerId) returns Player|error {
         PlayerInfo info = check self.playerInfoClient->/player(id = playerId);
